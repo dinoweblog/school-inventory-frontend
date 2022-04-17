@@ -2,7 +2,12 @@ import { useContext, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { loginError, loginLoading, loginSuccess } from "../Redux/Login/action";
+import {
+  loginAuthenticated,
+  loginError,
+  loginLoading,
+  loginSuccess,
+} from "../Redux/Login/action";
 
 const H1 = styled.h1`
   text-align: center;
@@ -46,7 +51,7 @@ export const Login = () => {
     };
 
     dispatch(loginLoading());
-    fetch(`https://credentials-server.herokuapp.com/login`, {
+    fetch(`https://school-inventory-server.herokuapp.com/login`, {
       method: "POST",
       body: JSON.stringify(userDetails),
       headers: {
@@ -56,7 +61,8 @@ export const Login = () => {
       .then((res) => res.json())
       .then((res) => {
         dispatch(loginSuccess(res.token));
-        if (res.token != undefined) navigate("/");
+        if (res.token != undefined) dispatch(loginAuthenticated("true"));
+        navigate("/teachers");
       })
       .catch((error) => dispatch(loginError()));
   };

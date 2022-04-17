@@ -5,6 +5,7 @@ import styled from "styled-components";
 const H1 = styled.h1`
   text-align: center;
 `;
+
 const Div = styled.div`
   width: 30%;
   margin: auto;
@@ -33,12 +34,83 @@ const Div = styled.div`
 `;
 
 export const Register = () => {
-  return (
-    <Div>
-      <input type="email" />
-      <input type="password" />
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [gender, setGender] = useState("");
+  const [e, setError] = useState("");
 
-      <button onClick={() => {}}>Signup</button>
-    </Div>
+  const Navigate = useNavigate();
+
+  const userDetails = {
+    name,
+    email,
+    password,
+    mobile,
+    gender,
+  };
+
+  const handleSubmit = () => {
+    fetch(`https://school-inventory-server.herokuapp.com/register`, {
+      method: "POST",
+      body: JSON.stringify(userDetails),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      // .then((res) => )
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  return (
+    <>
+      <H1>Register</H1>
+      <Div>
+        <input
+          type="text"
+          placeholder="Enter Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type="email"
+          placeholder="Enter Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Enter Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder="Enter Mobile"
+          value={mobile}
+          onChange={(e) => setMobile(e.target.value)}
+        />
+
+        <input
+          type="text"
+          placeholder="Enter Gender"
+          value={gender}
+          onChange={(e) => setGender(e.target.value)}
+        />
+
+        <button
+          onClick={() => {
+            handleSubmit();
+            Navigate("/login");
+          }}
+        >
+          Submit
+        </button>
+      </Div>
+    </>
   );
 };

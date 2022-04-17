@@ -1,4 +1,9 @@
-import { LOGIN_LOADING, LOGIN_SUCCESS, LOGIN_ERROR } from "./action";
+import {
+  LOGIN_LOADING,
+  LOGIN_SUCCESS,
+  LOGIN_ERROR,
+  LOGIN_AUTH,
+} from "./action";
 
 const initState = {
   loading: false,
@@ -18,6 +23,12 @@ const loginReducer = (store = initState, { type, payload }) => {
         loading: false,
         isAuthenticated: true,
         token: payload,
+      };
+    case LOGIN_AUTH:
+      return {
+        ...store,
+        loading: false,
+        isAuthenticated: payload,
       };
     case LOGIN_ERROR:
       return {

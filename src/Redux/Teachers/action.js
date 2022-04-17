@@ -16,10 +16,10 @@ export const getTeachersError = () => ({
 });
 export const getDataAll = () => (dispatch) => {
   dispatch(getTeachersLoading());
-  fetch(`https://reqres.in/api/users?page=2`)
+  fetch(`https://school-inventory-server.herokuapp.com/teachers/`)
     .then((res) => res.json())
     .then((res) => {
-      dispatch(getTeachers(res.data));
+      dispatch(getTeachers(res));
     })
     .catch(() => dispatch(getTeachersError()));
 };
