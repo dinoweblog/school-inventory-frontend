@@ -1,0 +1,6 @@
+.home_page{
+    
+    background-image: url("../Components//Images/home_background_img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
