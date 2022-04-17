@@ -68,27 +68,31 @@ export const Login = () => {
   };
 
   return (
-    <Div>
-      <input
-        type="text"
-        placeholder="Enter Email"
-        value={email}
-        onChange={(e) => setUserName(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Enter Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+    <>
+      <H1>Login</H1>
 
-      <button
-        onClick={() => {
-          handleSubmit();
-        }}
-      >
-        Submit
-      </button>
-    </Div>
+      <Div>
+        <input
+          type="text"
+          placeholder="Enter Email"
+          value={email}
+          onChange={(e) => setUserName(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Enter Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <button
+          onClick={() => {
+            handleSubmit();
+          }}
+        >
+          Submit
+        </button>
+      </Div>
+    </>
   );
 };
