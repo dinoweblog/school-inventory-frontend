@@ -25,7 +25,7 @@ const Div = styled.div`
   button {
     height: 38px;
     border: none;
-    background-color: tomato;
+    background-color: #448b44;
     color: white;
     :hover {
       opacity: 0.9;

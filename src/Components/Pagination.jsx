@@ -4,6 +4,7 @@ import styled from "styled-components";
 const Div = styled.div`
   display: flex;
   margin-top: 50px;
+  margin-bottom: 80px;
   gap: 10px;
   justify-content: center;
   button {

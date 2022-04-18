@@ -2,7 +2,7 @@ export const GET_TEACHERS = "GET_TEACHERS";
 export const GET_TEACHERS_LOADING = "GET_TEACHERS_LOADING";
 export const GET_TEACHERS_ERROR = "GET_TEACHERS_ERROR";
 
-const getTeachers = (payload) => ({
+export const getTeachers = (payload) => ({
   type: GET_TEACHERS,
   payload,
 });

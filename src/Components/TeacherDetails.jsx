@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { getDataAll } from "../Redux/Teachers/action";
+import { getDataAll, getTeachersLoading } from "../Redux/Teachers/action";
 import { Card } from "./Card";
 import { Navbar } from "./Navbar";
 import Pagination from "./Pagination";
@@ -80,17 +80,15 @@ export const TeacherDetails = () => {
   };
 
   useEffect(() => {
-    setTeachersData([...teachers]);
     fetchData();
+    setTeachersData([...teachers]);
   }, []);
 
   useEffect(() => {
     reRender();
   }, [count]);
 
-  //   const getFilterData = () => {
-  //     setTeachersData([...teachers]);
-  //   };
+  console.log("teachers", teachers, teachersData);
 
   const searchData = () => {
     fetch(
@@ -141,7 +139,9 @@ export const TeacherDetails = () => {
   currentPosts = teachersData.slice(indexOfFirstPost, indexOfLastPost);
   paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  console.log(filterData);
+  useEffect(() => {
+    searchData();
+  }, []);
 
   return (
     <MainDiv>
