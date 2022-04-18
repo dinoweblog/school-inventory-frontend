@@ -22,12 +22,13 @@ const MainDiv = styled.div`
     padding: 10px;
   }
   .btn {
-    height: 38px;
+    height: 30px;
     border: none;
     background-color: transparent;
     border: 1px solid #b9b9b9;
     border-radius: 5px;
     color: black;
+    font-size: 16px;
     :hover {
       border-color: green;
     }
