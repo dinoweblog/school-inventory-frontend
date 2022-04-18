@@ -88,8 +88,6 @@ export const TeacherDetails = () => {
     reRender();
   }, [count]);
 
-  console.log("teachers", teachers, teachersData);
-
   const searchData = () => {
     fetch(
       `https://school-inventory-server.herokuapp.com/teachers/search/${teacherName}`
@@ -139,9 +137,7 @@ export const TeacherDetails = () => {
   currentPosts = teachersData.slice(indexOfFirstPost, indexOfLastPost);
   paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  useEffect(() => {
-    searchData();
-  }, []);
+  teachersData.length === 0 ? searchData() : "hello";
 
   return (
     <MainDiv>
