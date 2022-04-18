@@ -8,9 +8,16 @@ import {
   loginLoading,
   loginSuccess,
 } from "../Redux/Login/action";
+import { Navbar } from "./Navbar";
 
 const H1 = styled.h1`
   text-align: center;
+`;
+
+const Nav = styled.div`
+  .nav {
+    border-bottom: 1px solid gray;
+  }
 `;
 const Div = styled.div`
   width: 30%;
@@ -69,6 +76,9 @@ export const Login = () => {
 
   return (
     <>
+      <Nav>
+        <Navbar />
+      </Nav>
       <H1>Login</H1>
 
       <Div>

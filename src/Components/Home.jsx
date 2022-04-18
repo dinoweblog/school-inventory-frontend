@@ -13,6 +13,10 @@ const Div = styled.div`
     right: 5%;
     top: 35%;
     color: white;
+    p {
+      color: wheat;
+      line-height: 200%;
+    }
   }
 `;
 
@@ -23,6 +27,11 @@ export const Home = () => {
       <Div className="home_page">
         <div>
           <h1>School Inventory App</h1>
+          <p>
+            The school inventory management system works as an asset management
+            solution and provides insights on devices that tract teachers
+            classes
+          </p>
         </div>
       </Div>
     </>

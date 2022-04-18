@@ -6,9 +6,15 @@ const Div = styled.div`
   justify-content: space-between;
   padding: 12px 10%;
   box-sizing: border-box;
+
   .logo {
-    font-size: 24px;
-    font-weight: bold;
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      font-weight: bold;
+    }
   }
   .buttons {
     display: flex;
@@ -26,8 +32,16 @@ const Div = styled.div`
 export const Navbar = () => {
   const navigate = useNavigate();
   return (
-    <Div>
-      <div className="logo">School App</div>
+    <Div className="nav">
+      <div className="logo">
+        <button
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          School App
+        </button>
+      </div>
       <div className="buttons">
         <button
           onClick={() => {

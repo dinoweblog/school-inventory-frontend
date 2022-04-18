@@ -1,9 +1,16 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { Navbar } from "./Navbar";
 
 const H1 = styled.h1`
   text-align: center;
+`;
+
+const Nav = styled.div`
+  .nav {
+    border-bottom: 1px solid gray;
+  }
 `;
 
 const Div = styled.div`
@@ -68,6 +75,9 @@ export const Register = () => {
 
   return (
     <>
+      <Nav>
+        <Navbar />
+      </Nav>
       <H1>Register</H1>
       <Div>
         <input
