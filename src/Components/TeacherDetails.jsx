@@ -82,12 +82,11 @@ export const TeacherDetails = () => {
 
   useEffect(() => {
     fetchData();
-    setTeachersData([...teachers]);
   }, []);
 
   useEffect(() => {
-    reRender();
-  }, [count]);
+    setTeachersData([...teachers]);
+  }, [teachers, dispatch]);
 
   const searchData = () => {
     fetch(
@@ -123,22 +122,17 @@ export const TeacherDetails = () => {
       });
     }
   };
-  let currentPosts;
-  let indexOfFirstPost;
-  let indexOfLastPost;
-  let paginate;
-  const reRender = () => {
-    indexOfLastPost = currentPage * postsPerPage;
-    indexOfFirstPost = indexOfLastPost - postsPerPage;
-    currentPosts = teachersData.slice(indexOfFirstPost, indexOfLastPost);
-    paginate = (pageNumber) => setCurrentPage(pageNumber);
-  };
-  indexOfLastPost = currentPage * postsPerPage;
-  indexOfFirstPost = indexOfLastPost - postsPerPage;
-  currentPosts = teachersData.slice(indexOfFirstPost, indexOfLastPost);
-  paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  teachersData.length === 0 ? searchData() : "hello";
+  // const reRender = () => {
+  //   indexOfLastPost = currentPage * postsPerPage;
+  //   indexOfFirstPost = indexOfLastPost - postsPerPage;
+  //   currentPosts = teachersData.slice(indexOfFirstPost, indexOfLastPost);
+  //   paginate = (pageNumber) => setCurrentPage(pageNumber);
+  // };
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = teachersData.slice(indexOfFirstPost, indexOfLastPost);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <MainDiv>
